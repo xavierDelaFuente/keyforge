@@ -6,17 +6,17 @@ import Card from "../Card/Card.js";
 import Board from "../Board/Board.js";
 
 class Routes extends Component {
-	render() {
-		return (
-			<Router>
-				<Switch>
-					<Route exact path="/" component={App} />
-					<Route exact path="/Board" component={Board} />
-					<Route exact path="/Card" component={Card} />
-				</Switch>
-			</Router>
-		);
-	}
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={App} />
+          <Route exact path="/Board" component={Board} />
+          <Route exact path="/Card" component={Card} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default Routes;
