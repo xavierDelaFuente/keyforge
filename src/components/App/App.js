@@ -8,7 +8,11 @@ class App extends Component {
   render() {
     return (
       <MainApp className="App">
-        <Link to="/Board"><Header /></Link>   
+        <Link to="/Board">
+          <Header>
+            <p>Welcome to Keyforge. An App for easier keeping count of the game.</p>
+          </Header>
+        </Link>   
       </MainApp>
     );
   }
