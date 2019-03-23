@@ -10,3 +10,21 @@
     justify-content: space-between;
 	align-items: center;
 }
+
+.key{
+	height: 40px;
+	display: flex;
+}
+
+.family{
+	height: 160px;
+	display: flex;
+}
+
+.image{
+
+}
+
+.keys-container{
+	display: flex;
+}
