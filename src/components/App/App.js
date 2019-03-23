@@ -10,9 +10,11 @@ class App extends Component {
       <MainApp className="App">
         <Link to="/Board">
           <Header>
-            <p>Welcome to Keyforge. An App for easier keeping count of the game.</p>
+            <p>
+              Welcome to Keyforge. An App for easier keeping count of the game.
+            </p>
           </Header>
-        </Link>   
+        </Link>
       </MainApp>
     );
   }
