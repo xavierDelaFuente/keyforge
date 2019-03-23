@@ -1,5 +1,5 @@
 .board {
-	height: 100%;
+	height: 100vh;
 	background-color: #282c34;
   display: flex;
   flex-direction: column;
@@ -8,10 +8,16 @@
 .board-table{
 	background-color: #b21414d6;;
 	height: 80%;
+	 display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .board-header{
-	height: 20%;
+	height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0px 24px;
 }
 
 .players-board{
@@ -27,4 +33,18 @@
 .player-container{
 	display: flex;
     flex-direction: column;
+    border: 4px solid #008b5e;
+    border-radius: 32px;
+    margin: 8px;
+    background-color: #282c34;
+        width: 300px;
+}
+
+.button{
+	margin: 0px 8px;
+}
+
+.player-title{
+	text-align: center;
+	color: white;
 }
