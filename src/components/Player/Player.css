@@ -1,0 +1,12 @@
+.player{
+	flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.counter{
+	flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+	align-items: center;
+}
