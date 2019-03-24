@@ -4,6 +4,8 @@ import Player from "../Player/Player";
 import NavBar from "../NavBar/NavBar";
 import "./Board.css";
 
+import familiesLogo from "../../data/img/families/index.js";
+
 function Board() {
   const players = ["Magician the 1st", "Magician the 2nd"];
   return (
@@ -13,9 +15,9 @@ function Board() {
         <h2 className="players-board-title"> Players cristals number </h2>
         <div className="players-board">
           {players.map(player => (
-            <div className="player-container">
+            <div key={player} className="player-container">
               <h5 className="player-title">{player}</h5>
-              <Player title={player} />
+              <Player title={player} familiesLogo={familiesLogo} />
             </div>
           ))}
         </div>
