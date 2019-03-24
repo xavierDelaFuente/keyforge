@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { useArray, useBoolean } from "react-hanger";
 import "./Player.css";
 
-import familiesLogo from "../../data/img/families/index.js";
 import keyLogo from "../../data/img/forged-key.png";
 import osoLogo from "../../data/img/oso.jpg";
 
-function Player() {
+function Player({ title, familiesLogo }) {
   const [count, setCount] = useState(0);
   const increment = (count, value = 1) => setCount(count + value);
 
@@ -28,7 +27,9 @@ function Player() {
   const renderKeys = number => {
     let keys = [];
     for (var i = 0; i < number; i++) {
-      keys.push(<img className="key image" src={keyLogo} alt="Smiley face" />);
+      keys.push(
+        <img key={i} className="key image" src={keyLogo} alt="Smiley face" />
+      );
     }
     return keys;
   };
@@ -40,18 +41,32 @@ function Player() {
     }
   };
 
+  const removeFamily = family => {
+    if (familyImages.value.length > 0) {
+      // console.log(family);
+      // console.log(familyImages);
+      // console.log(familyImages.value.indexOf(family));
+      familyImages.removeById(familyImages.value.indexOf(family));
+    }
+  };
+
   const renderPlayerFamilies = (families = [osoLogo]) =>
-    families.value.map(family => (
-      <img className="family image" src={family} alt="Smiley face" />
+    families.value.map((family, i) => (
+      <div key={i} className="family-image" key={family}>
+        <img className="family image" src={family} alt="Smiley face" />
+        <div onClick={() => removeFamily(family)}>x</div>
+      </div>
     ));
 
   const renderFamilySelector = () => (
     <select
-      familiesLogo={familiesLogo}
       onChange={({ target: { value } }) => addFamily(value)}
+      className="family-selector"
     >
       {Object.keys(familiesLogo).map(family => (
-        <option value={family}>{family}</option>
+        <option key={family} value={family} className="family-selector--option">
+          {family}
+        </option>
       ))}
     </select>
   );
@@ -78,7 +93,10 @@ function Player() {
         >
           -
         </button>
-        <p>{`Key Fragments: ${count}`}</p>
+        <p
+          className="fragments-count"
+          count={count}
+        >{`Key Fragments: ${count}`}</p>
         <button className="increment button" onClick={() => increment(count)}>
           +
         </button>
