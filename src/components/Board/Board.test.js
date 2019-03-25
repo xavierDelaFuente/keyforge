@@ -24,25 +24,14 @@ describe("[Component]: Board:", () => {
     });
 
     test("renders a title for the board", () => {
-      const welcomeMessage = " Players cristals and keys counter ";
-      expect(wrapper.find(".players-board-title").props().children).toEqual(
+      const welcomeMessage = "Players cristals and keys counter";
+      expect(wrapper.find(".players-board-title").props().children).toBe(
         welcomeMessage
       );
     });
 
-    test("renders as many players as it receives as props", () => {
-      expect(wrapper.find(".player-container")).toHaveLength(players.length);
-    });
-
-    test("renders a title for each player", () => {
-      players.forEach((player, index) => {
-        expect(
-          wrapper
-            .find(".player-title")
-            .at(index)
-            .props().children
-        ).toEqual(player);
-      });
+    test("renders Players", () => {
+      expect(wrapper.find("Players")).toHaveLength(1);
     });
   });
 });
