@@ -19,7 +19,7 @@
     "eject": "react-scripts eject",
     "format": "prettier --list-different --single-quote --print-width=120 \"js/**/*.{js,jsx}\"",
     "format:js": "prettier --check \"src/**/*.js\" --write",
-    "format:css": "prettier --check \"src/**/*.(css|js)\" --write",
+    "format:css": "prettier --check \"src/**/*.css\" --write",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
