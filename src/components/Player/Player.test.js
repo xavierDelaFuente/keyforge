@@ -108,6 +108,27 @@ describe("[Component]: Player:", () => {
           ).toHaveLength(maxKeys);
       }
     });
+    const defaulatIncreaseNumber = 1;
+    const initialKeycost = 6;
+    test(`has the ability to increase the value by ${defaulatIncreaseNumber} when clicking + `, () => {
+      expect(wrapper.find("Counter.increment-keycost").props().count).toBe(initialKeycost);
+      for (var i = 1; i <= 6; i++) {
+        wrapper.find("Counter.increment-keycost").simulate("click");
+        expect(wrapper.find("Counter.increment-keycost").props().count).toBe(
+          i * defaulatIncreaseNumber + initialKeycost
+        );
+      }
+    });
+
+    test(`has the ability to decrease the value by ${defaulatIncreaseNumber} when clicking + `, () => {
+      expect(wrapper.find("Counter.decrement-keycost").props().count).toBe(initialKeycost);
+      for (var i = 1; i <= 6; i++) {
+        wrapper.find("Counter.decrement-keycost").simulate("click");
+        expect(wrapper.find("Counter.decrement-keycost").props().count).toBe(
+          -i * defaulatIncreaseNumber + initialKeycost
+        );
+      }
+    });
   });
 
   describe("Renders a Fragments counter with the ability to increase and decrease and display the value", () => {

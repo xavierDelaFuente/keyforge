@@ -9,16 +9,18 @@ import osoLogo from "../../data/img/oso.jpg";
 
 function Player({ title, familiesLogo }) {
   const [count, setCount] = useState(0);
-  const increment = (count, value = 1) => setCount(count + value);
 
   const maxKey = 3;
+  const maxImg = 3;
+  const initialKeyCost = 6;
+  const [keycost, setKeycost] = useState(initialKeyCost);
   // const disableForgeKey = useBoolean(false);
   const [key, setKey] = useState(0);
-  const forgeKey = (count, key, value = 6) => {
-    if (count >= value) {
+  const forgeKey = (count, key, keycost = initialKeyCost) => {
+    if (count >= keycost) {
       if (key < maxKey) {
         setKey(key + 1);
-        setCount(count - value);
+        setCount(count - keycost);
       }
       // else{
       // 	disableForgeKey.toggle
@@ -38,7 +40,7 @@ function Player({ title, familiesLogo }) {
 
   const familyImages = useArray([]);
   const addFamily = family => {
-    if (familyImages.value.length < 3) {
+    if (familyImages.value.length < maxImg) {
       familyImages.add(familiesLogo[family]);
     }
   };
@@ -81,9 +83,13 @@ function Player({ title, familiesLogo }) {
           <p> Keys: </p>
           <div className="keys-number">{renderKeys(key)}</div>
         </div>
-        <button className="button add-key" onClick={() => forgeKey(count, key)}>
-          Forge Key
-        </button>
+        <div className="keys-counter-container">
+          <Counter count={keycost} setCount={setKeycost} incrementValue={-1} text={'-'} className="decrement-keycost"/>
+          <button className="button add-key" onClick={() => forgeKey(count, key, keycost)}>
+            Forge Key for {keycost}
+          </button>
+          <Counter count={keycost} setCount={setKeycost} incrementValue={1} text={'+'} className="increment-keycost"/>
+        </div>
       </div>
       <div className="player-families circle-container">
         {renderPlayerFamilies(familyImages)}
