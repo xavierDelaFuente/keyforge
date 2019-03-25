@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useArray, useBoolean } from "react-hanger";
 import "./Player.css";
 
+import Counter from '../../generalComponents/Counter/Counter.js'
+
 import keyLogo from "../../data/img/forged-key.png";
 import osoLogo from "../../data/img/oso.jpg";
 
@@ -87,19 +89,12 @@ function Player({ title, familiesLogo }) {
         {renderPlayerFamilies(familyImages)}
       </div>
       <div className="fragments-counter counter">
-        <button
-          className="decrement button"
-          onClick={() => increment(count, -1)}
-        >
-          -
-        </button>
+        <Counter count={count} setCount={setCount} incrementValue={-1} text={'-'} className="decrement"/>
         <p
           className="fragments-count"
           count={count}
         >{`Key Fragments: ${count}`}</p>
-        <button className="increment button" onClick={() => increment(count)}>
-          +
-        </button>
+        <Counter count={count} setCount={setCount} incrementValue={1} text={'+'} className="increment"/>
       </div>
     </div>
   );
