@@ -58,7 +58,7 @@ describe("[Component]: Player:", () => {
         `Key Fragments: 0`
       );
       for (var i = 1; i <= 6; i++) {
-        wrapper.find(".increment").simulate("click");
+        wrapper.find("Counter.increment").simulate("click");
         wrapper.find(".add-key").simulate("click");
         if (i < forgeKeyIndex) {
           expect(wrapper.find(".fragments-count").props().count).toBe(i);
@@ -88,7 +88,7 @@ describe("[Component]: Player:", () => {
     const maxKeys = 3;
     test(`doesn't add more than ${maxKeys} keys`, () => {
       for (var i = 1; i <= 30; i++) {
-        wrapper.find(".increment").simulate("click");
+        wrapper.find("Counter.increment").simulate("click");
       }
       for (var i = 1; i <= 6; i++) {
         wrapper.find(".add-key").simulate("click");
@@ -108,13 +108,34 @@ describe("[Component]: Player:", () => {
           ).toHaveLength(maxKeys);
       }
     });
+    const defaulatIncreaseNumber = 1;
+    const initialKeycost = 6;
+    test(`has the ability to increase the value by ${defaulatIncreaseNumber} when clicking + `, () => {
+      expect(wrapper.find("Counter.increment-keycost").props().count).toBe(initialKeycost);
+      for (var i = 1; i <= 6; i++) {
+        wrapper.find("Counter.increment-keycost").simulate("click");
+        expect(wrapper.find("Counter.increment-keycost").props().count).toBe(
+          i * defaulatIncreaseNumber + initialKeycost
+        );
+      }
+    });
+
+    test(`has the ability to decrease the value by ${defaulatIncreaseNumber} when clicking + `, () => {
+      expect(wrapper.find("Counter.decrement-keycost").props().count).toBe(initialKeycost);
+      for (var i = 1; i <= 6; i++) {
+        wrapper.find("Counter.decrement-keycost").simulate("click");
+        expect(wrapper.find("Counter.decrement-keycost").props().count).toBe(
+          -i * defaulatIncreaseNumber + initialKeycost
+        );
+      }
+    });
   });
 
   describe("Renders a Fragments counter with the ability to increase and decrease and display the value", () => {
     test("renders all necessary elements without crashing", () => {
       expect(wrapper.find(".fragments-counter")).toHaveLength(1);
-      expect(wrapper.find(".decrement")).toHaveLength(1);
-      expect(wrapper.find(".increment")).toHaveLength(1);
+      expect(wrapper.find("Counter.decrement")).toHaveLength(1);
+      expect(wrapper.find("Counter.increment")).toHaveLength(1);
       expect(wrapper.find(".fragments-count")).toHaveLength(1);
     });
 
@@ -122,7 +143,7 @@ describe("[Component]: Player:", () => {
     test(`has the ability to increase the value by ${defaulatIncreaseNumber} when clicking + `, () => {
       expect(wrapper.find(".fragments-count").props().count).toBe(0);
       for (var i = 1; i <= 6; i++) {
-        wrapper.find(".increment").simulate("click");
+        wrapper.find("Counter.increment").simulate("click");
         expect(wrapper.find(".fragments-count").props().count).toBe(
           i * defaulatIncreaseNumber
         );
@@ -132,7 +153,7 @@ describe("[Component]: Player:", () => {
     test(`has the ability to decrease the value by ${defaulatIncreaseNumber} when clicking + `, () => {
       expect(wrapper.find(".fragments-count").props().count).toBe(0);
       for (var i = 1; i <= 6; i++) {
-        wrapper.find(".decrement").simulate("click");
+        wrapper.find("Counter.decrement").simulate("click");
         expect(wrapper.find(".fragments-count").props().count).toBe(
           -i * defaulatIncreaseNumber
         );
