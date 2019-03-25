@@ -12,7 +12,10 @@ function Board() {
     <div className="board">
       <Header className="board-header" />
       <div className="board-table">
-        <h2 className="players-board-title"> Players cristals number </h2>
+        <h2 className="players-board-title">
+          {" "}
+          Players cristals and keys counter{" "}
+        </h2>
         <div className="players-board">
           {players.map(player => (
             <div key={player} className="player-container">
