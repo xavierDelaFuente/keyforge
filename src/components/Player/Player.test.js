@@ -122,16 +122,20 @@ describe("[Component]: Player:", () => {
     test(`has the ability to increase the value by ${defaulatIncreaseNumber} when clicking + `, () => {
       expect(wrapper.find(".fragments-count").props().count).toBe(0);
       for (var i = 1; i <= 6; i++) {
-      	wrapper.find(".increment").simulate("click");
-      	expect(wrapper.find(".fragments-count").props().count).toBe(i*defaulatIncreaseNumber);
+        wrapper.find(".increment").simulate("click");
+        expect(wrapper.find(".fragments-count").props().count).toBe(
+          i * defaulatIncreaseNumber
+        );
       }
     });
 
     test(`has the ability to decrease the value by ${defaulatIncreaseNumber} when clicking + `, () => {
       expect(wrapper.find(".fragments-count").props().count).toBe(0);
       for (var i = 1; i <= 6; i++) {
-      	wrapper.find(".decrement").simulate("click");
-      	expect(wrapper.find(".fragments-count").props().count).toBe(-i*defaulatIncreaseNumber);
+        wrapper.find(".decrement").simulate("click");
+        expect(wrapper.find(".fragments-count").props().count).toBe(
+          -i * defaulatIncreaseNumber
+        );
       }
     });
   });
