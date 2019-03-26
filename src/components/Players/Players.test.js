@@ -7,7 +7,7 @@ describe("[Component]: Players:", () => {
   let wrapper;
   const players = ["Magician the 1st", "Magician the 2nd"];
   beforeEach(() => {
-    wrapper = mount(<Players players={players}/>);
+    wrapper = mount(<Players players={players} />);
   });
 
   test("renders without crashing", () => {
