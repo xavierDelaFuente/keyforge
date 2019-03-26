@@ -5,6 +5,7 @@ import "./Player.css";
 import Counter from "../../generalComponents/Counter/Counter.js";
 
 import keyLogo from "../../data/img/forged-key.png";
+import capturedFragmentskeyLogo from "../../data/img/fragments.png";
 import osoLogo from "../../data/img/oso.jpg";
 
 function Player({ title, familiesLogo }) {
@@ -28,6 +29,21 @@ function Player({ title, familiesLogo }) {
       // 	disableForgeKey.toggle
       // }
     }
+  };
+
+  const renderCapturedFragments = number => {
+    let fragments = [];
+    for (var i = 0; i < number; i++) {
+      fragments.push(
+        <img
+          key={i}
+          className="capturedFragments image"
+          src={capturedFragmentskeyLogo}
+          alt="Smiley face"
+        />
+      );
+    }
+    return fragments;
   };
 
   const renderKeys = number => {
@@ -56,13 +72,13 @@ function Player({ title, familiesLogo }) {
     }
   };
 
-  const captureFragments = (
+  const captureFragments = ({
     count,
     setFragment,
     capture,
     setCapture,
     capturedFragments
-  ) => {
+  }) => {
     capture = count - capture > 0 ? capture : count;
     setCount(count - capture);
     if (count > 0) capturedFragments.add(capture);
@@ -93,26 +109,40 @@ function Player({ title, familiesLogo }) {
     <div className="player">
       {renderFamilySelector()}
       <div className="capture-fragments">
+        <Counter
+          count={capture}
+          setCount={setCapture}
+          incrementValue={-1}
+          text={"-"}
+          className="decrement-capturecost"
+        />
         <button
           className="capture-fragments__button"
           onClick={() =>
-            captureFragments(
+            captureFragments({
               count,
               setCount,
               capture,
               setCapture,
               capturedFragments
-            )
+            })
           }
         >
-          Captured: {capture}
+          Capture: {capture}
         </button>
+        <Counter
+          count={capture}
+          setCount={setCapture}
+          incrementValue={1}
+          text={"+"}
+          className="increment-capturecost"
+        />
         {capturedFragments.value.length > 0 &&
-          capturedFragments.value.map(capturedFragment => (
-            <div key={capturedFragment}>
-              {" "}
-              capturedFragments {capturedFragment}{" "}
-            </div>
+          capturedFragments.value.map((capturedFragment, key) => (
+            <li key={key}>
+              Captured {renderCapturedFragments(capturedFragment)}
+              {/*<button onClick={() => capturedFragments.removeIndex(key)}>delete</button>*/}
+            </li>
           ))}
       </div>
       <div className="keys-counter counter">
