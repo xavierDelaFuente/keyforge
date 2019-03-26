@@ -46,3 +46,7 @@
   display: flex;
   margin: 8px;
 }
+
+.capturedFragments.image {
+    height: 16px;
+}
