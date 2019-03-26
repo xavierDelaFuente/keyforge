@@ -5,11 +5,17 @@ import { MemoryRouter } from "react-router-dom";
 
 describe("[Component]: Counter:", () => {
   let wrapper;
-  const testClass = 'test-class'
+  const testClass = "test-class";
   const testIncreaseNumber = 1;
-  const testText = 'click'
+  const testText = "click";
   beforeEach(() => {
-    wrapper = mount(<Counter className={testClass} increment={testIncreaseNumber} text={testText} />);
+    wrapper = mount(
+      <Counter
+        className={testClass}
+        increment={testIncreaseNumber}
+        text={testText}
+      />
+    );
   });
 
   test("renders without crashing", () => {
@@ -35,7 +41,6 @@ describe("[Component]: Counter:", () => {
     //   expect(wrapper.props().count).toBe(0);
     //   for (var i = 1; i <= 6; i++) {
     //     wrapper.find(".increment").simulate("click");
-
     //   }
     // });
   });

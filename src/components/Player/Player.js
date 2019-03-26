@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { useArray, useBoolean } from "react-hanger";
+import { useArray } from "react-hanger";
 import "./Player.css";
 
-import Counter from '../../generalComponents/Counter/Counter.js'
+import Counter from "../../generalComponents/Counter/Counter.js";
 
 import keyLogo from "../../data/img/forged-key.png";
 import osoLogo from "../../data/img/oso.jpg";
 
 function Player({ title, familiesLogo }) {
   const [count, setCount] = useState(0);
+  const [capture, setCapture] = useState(2);
+  const capturedFragments = useArray([]);
 
   const maxKey = 3;
   const maxImg = 3;
@@ -54,9 +56,21 @@ function Player({ title, familiesLogo }) {
     }
   };
 
+  const captureFragments = (
+    count,
+    setFragment,
+    capture,
+    setCapture,
+    capturedFragments
+  ) => {
+    capture = count - capture > 0 ? capture : count;
+    setCount(count - capture);
+    if (count > 0) capturedFragments.add(capture);
+  };
+
   const renderPlayerFamilies = (families = [osoLogo]) =>
     families.value.map((family, i) => (
-      <div key={i} className="family-image" key={family}>
+      <div key={i} className="family-image">
         <img className="family image" src={family} alt="Smiley face" />
         <div onClick={() => removeFamily(family)}>x</div>
       </div>
@@ -78,29 +92,79 @@ function Player({ title, familiesLogo }) {
   return (
     <div className="player">
       {renderFamilySelector()}
+      <div className="capture-fragments">
+        <button
+          className="capture-fragments__button"
+          onClick={() =>
+            captureFragments(
+              count,
+              setCount,
+              capture,
+              setCapture,
+              capturedFragments
+            )
+          }
+        >
+          Captured: {capture}
+        </button>
+        {capturedFragments.value.length > 0 &&
+          capturedFragments.value.map(capturedFragment => (
+            <div key={capturedFragment}>
+              {" "}
+              capturedFragments {capturedFragment}{" "}
+            </div>
+          ))}
+      </div>
       <div className="keys-counter counter">
         <div className="keys-container">
           <p> Keys: </p>
           <div className="keys-number">{renderKeys(key)}</div>
         </div>
         <div className="keys-counter-container">
-          <Counter count={keycost} setCount={setKeycost} incrementValue={-1} text={'-'} className="decrement-keycost"/>
-          <button className="button add-key" onClick={() => forgeKey(count, key, keycost)}>
+          <Counter
+            count={keycost}
+            setCount={setKeycost}
+            incrementValue={-1}
+            text={"-"}
+            className="decrement-keycost"
+          />
+          <button
+            className="button add-key"
+            onClick={() => forgeKey(count, key, keycost)}
+          >
             Forge Key for {keycost}
           </button>
-          <Counter count={keycost} setCount={setKeycost} incrementValue={1} text={'+'} className="increment-keycost"/>
+          <Counter
+            count={keycost}
+            setCount={setKeycost}
+            incrementValue={1}
+            text={"+"}
+            className="increment-keycost"
+          />
         </div>
       </div>
       <div className="player-families circle-container">
         {renderPlayerFamilies(familyImages)}
       </div>
       <div className="fragments-counter counter">
-        <Counter count={count} setCount={setCount} incrementValue={-1} text={'-'} className="decrement"/>
+        <Counter
+          count={count}
+          setCount={setCount}
+          incrementValue={-1}
+          text={"-"}
+          className="decrement"
+        />
         <p
           className="fragments-count"
           count={count}
         >{`Key Fragments: ${count}`}</p>
-        <Counter count={count} setCount={setCount} incrementValue={1} text={'+'} className="increment"/>
+        <Counter
+          count={count}
+          setCount={setCount}
+          incrementValue={1}
+          text={"+"}
+          className="increment"
+        />
       </div>
     </div>
   );

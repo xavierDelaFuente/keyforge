@@ -5,7 +5,10 @@ function Counter({ count, setCount, incrementValue, text, className }) {
   const increment = (count, value = 1) => setCount(count + value);
 
   return (
-    <button className={`${className} button`} onClick={() => increment(count, incrementValue)}>
+    <button
+      className={`${className} button`}
+      onClick={() => increment(count, incrementValue)}
+    >
       {text}
     </button>
   );

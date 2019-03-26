@@ -111,7 +111,9 @@ describe("[Component]: Player:", () => {
     const defaulatIncreaseNumber = 1;
     const initialKeycost = 6;
     test(`has the ability to increase the value by ${defaulatIncreaseNumber} when clicking + `, () => {
-      expect(wrapper.find("Counter.increment-keycost").props().count).toBe(initialKeycost);
+      expect(wrapper.find("Counter.increment-keycost").props().count).toBe(
+        initialKeycost
+      );
       for (var i = 1; i <= 6; i++) {
         wrapper.find("Counter.increment-keycost").simulate("click");
         expect(wrapper.find("Counter.increment-keycost").props().count).toBe(
@@ -121,7 +123,9 @@ describe("[Component]: Player:", () => {
     });
 
     test(`has the ability to decrease the value by ${defaulatIncreaseNumber} when clicking + `, () => {
-      expect(wrapper.find("Counter.decrement-keycost").props().count).toBe(initialKeycost);
+      expect(wrapper.find("Counter.decrement-keycost").props().count).toBe(
+        initialKeycost
+      );
       for (var i = 1; i <= 6; i++) {
         wrapper.find("Counter.decrement-keycost").simulate("click");
         expect(wrapper.find("Counter.decrement-keycost").props().count).toBe(
@@ -158,6 +162,35 @@ describe("[Component]: Player:", () => {
           -i * defaulatIncreaseNumber
         );
       }
+    });
+  });
+
+  describe("Renders an element to capture maxFamilies ragments", () => {
+    test("renders without crashing", () => {
+      expect(wrapper.find(".capture-fragments")).toHaveLength(1);
+    });
+
+    const captureAmount = 2;
+    const increaseFragmentsAmountBy = amount => {
+      for (var i = 1; i <= amount; i++) {
+        wrapper.find("Counter.increment").simulate("click");
+      }
+    };
+    test("if the other player has Fragments, ${captureAmount} Fragments can be captured", () => {
+      expect(wrapper.find(".fragments-count").props().count).toBe(0);
+
+      wrapper.find(".capture-fragments__button").simulate("click");
+      expect(wrapper.find(".fragments-count").props().count).toBe(0);
+
+      const increaseFragmentsAmount = captureAmount + 1;
+      increaseFragmentsAmountBy(increaseFragmentsAmount);
+      expect(wrapper.find(".fragments-count").props().count).toBe(
+        increaseFragmentsAmount
+      );
+      wrapper.find(".capture-fragments__button").simulate("click");
+      expect(wrapper.find(".fragments-count").props().count).toBe(
+        increaseFragmentsAmount - captureAmount
+      );
     });
   });
 });
