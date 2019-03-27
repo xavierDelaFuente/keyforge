@@ -9,12 +9,18 @@ function KeyForger({ count, setCount }) {
   const initialKeyCost = 6;
   const [keycost, setKeycost] = useState(initialKeyCost);
   // const disableForgeKey = useBoolean(false);
-  const [key, setKey] = useState(0);
+  const [forgedKey, setForgedKey] = useState(0);
 
-  const forgeKey = (count, key, keycost = initialKeyCost) => {
+  const forgeKey = (
+    count,
+    setCount,
+    forgedKey,
+    setForgedKey,
+    keycost = initialKeyCost
+  ) => {
     if (count >= keycost) {
-      if (key < maxKey) {
-        setKey(key + 1);
+      if (forgedKey < maxKey) {
+        setForgedKey(forgedKey + 1);
         setCount(count - keycost);
       }
       // else{
@@ -37,7 +43,7 @@ function KeyForger({ count, setCount }) {
     <div className="keys-counter counter">
       <div className="keys-container">
         <p> Keys: </p>
-        <div className="keys-number">{renderKeys(key)}</div>
+        <div className="keys-number">{renderKeys(forgedKey)}</div>
       </div>
       <div className="keys-counter-container">
         <Counter
@@ -49,7 +55,9 @@ function KeyForger({ count, setCount }) {
         />
         <button
           className="button add-key"
-          onClick={() => forgeKey(count, key, keycost)}
+          onClick={() =>
+            forgeKey(count, setCount, forgedKey, setForgedKey, keycost)
+          }
         >
           Forge Key for {keycost}
         </button>
