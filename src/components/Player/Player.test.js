@@ -8,7 +8,13 @@ describe("[Component]: Player:", () => {
   const familiesLogoLength = Object.values(familiesLogo).length;
 
   beforeEach(() => {
-    wrapper = mount(<Player familiesLogo={familiesLogo} />);
+    wrapper = mount(
+      <Player
+        familiesLogo={familiesLogo}
+        count={1}
+        setCount={count => count++}
+      />
+    );
   });
 
   test("renders without crashing", () => {
