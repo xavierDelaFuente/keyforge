@@ -11,7 +11,7 @@ function FamilySelector({ familiesLogo, familyImages }) {
   return (
     <select
       onChange={({ target: { value } }) => addFamily(value)}
-      className="family-selector"
+      className="button family-selector"
     >
       {Object.keys(familiesLogo).map(family => (
         <option key={family} value={family} className="family-selector--option">

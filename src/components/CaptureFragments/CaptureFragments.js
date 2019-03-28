@@ -46,7 +46,7 @@ function CaptureFragments({ count, setCount }) {
         className="decrement-capturecost"
       />
       <button
-        className="capture-fragments__button"
+        className="button capture-fragments__button"
         onClick={() =>
           captureFragments({
             count,
