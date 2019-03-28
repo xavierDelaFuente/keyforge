@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useArray } from "react-hanger";
 import "./Player.css";
 
@@ -7,6 +7,7 @@ import KeyForger from "../KeyForger/KeyForger.js";
 import FamilySelector from "../FamilySelector/FamilySelector.js";
 import FragmentsCounter from "../FragmentsCounter/FragmentsCounter.js";
 import PlayerFamilies from "../PlayerFamilies/PlayerFamilies.js";
+import StealFragments from "../StealFragments/StealFragments.js";
 
 function Player({
   title,
@@ -17,7 +18,6 @@ function Player({
   otherPlayerSetCount
 }) {
   const familyImages = useArray([]);
-  // const [count, setCount] = useState(0);
 
   return (
     <div className="player">
@@ -29,6 +29,12 @@ function Player({
       <PlayerFamilies familyImages={familyImages} />
       <KeyForger count={count} setCount={setCount} />
       <FragmentsCounter count={count} setCount={setCount} />
+      <StealFragments
+        count={count}
+        setCount={setCount}
+        otherPlayerCount={otherPlayerCount}
+        otherPlayerSetCount={otherPlayerSetCount}
+      />
     </div>
   );
 }

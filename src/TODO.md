@@ -48,14 +48,15 @@
   [x] Control the capture value 
   [x] Capture from the other player
   [ ] Recover the captured value and remove it from the displayed elements array
-# [ ] Rob Keys
-  [ ] Element to rob
-  [ ] Rob fragments if there's any
+# [x] Rob Keys
+  [x] Element to rob
+  [x] Rob fragments if there's any
 
 
 ## Test Things
 
 [ ] Check all Routes
+[ ] Test all App
 
 ## General Things
 
