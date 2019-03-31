@@ -23,7 +23,7 @@ function StealFragments({
   };
 
   return (
-    <div className="capture-fragments">
+    <div className="capture-fragments button">
       <Counter
         count={capture}
         setCount={setCapture}
@@ -32,7 +32,7 @@ function StealFragments({
         className="decrement-stealcost"
       />
       <button
-        className="button steal-fragments__button"
+        className="counter--button steal-fragments__button"
         onClick={() =>
           StealFragments({
             count,

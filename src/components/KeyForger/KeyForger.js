@@ -45,7 +45,7 @@ function KeyForger({ count, setCount }) {
         <p> Keys: </p>
         <div className="keys-number">{renderKeys(forgedKey)}</div>
       </div>
-      <div className="keys-counter-container">
+      <div className="keys-counter-container button">
         <Counter
           count={keycost}
           setCount={setKeycost}
@@ -54,7 +54,7 @@ function KeyForger({ count, setCount }) {
           className="decrement-keycost"
         />
         <button
-          className="button add-key"
+          className="add-key counter--button"
           onClick={() =>
             forgeKey(count, setCount, forgedKey, setForgedKey, keycost)
           }

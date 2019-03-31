@@ -6,7 +6,7 @@ function Counter({ count, setCount, incrementValue, text, className }) {
 
   return (
     <button
-      className={`${className} button`}
+      className={`${className} counter--button`}
       onClick={() => increment(count, incrementValue)}
     >
       {text}
