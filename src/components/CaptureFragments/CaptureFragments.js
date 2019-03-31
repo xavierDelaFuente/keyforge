@@ -6,7 +6,7 @@ import Counter from "../../generalComponents/Counter/Counter.js";
 import capturedFragmentskeyLogo from "../../data/img/fragments.png";
 
 function CaptureFragments({ count, setCount }) {
-  const [capture, setCapture] = useState(2);
+  const [capture, setCapture] = useState(0);
   const capturedFragments = useArray([]);
 
   const renderCapturedFragments = number => {
@@ -37,7 +37,7 @@ function CaptureFragments({ count, setCount }) {
   };
 
   return (
-    <div className="capture-fragments">
+    <div className="capture-fragments button">
       <Counter
         count={capture}
         setCount={setCapture}
@@ -46,7 +46,7 @@ function CaptureFragments({ count, setCount }) {
         className="decrement-capturecost"
       />
       <button
-        className="button capture-fragments__button"
+        className="capture-fragments__button counter--button"
         onClick={() =>
           captureFragments({
             count,
