@@ -13,11 +13,16 @@ function FamilySelector({ familiesLogo, familyImages }) {
       onChange={({ target: { value } }) => addFamily(value)}
       className="button family-selector"
     >
-      {Object.keys(familiesLogo).map(family => (
-        <option key={family} value={family} className="family-selector--option">
-          {family}
-        </option>
-      ))}
+      {Object.keys(familiesLogo).length &&
+        Object.keys(familiesLogo).map(family => (
+          <option
+            key={family}
+            value={family}
+            className="family-selector--option"
+          >
+            {family}
+          </option>
+        ))}
     </select>
   );
 }

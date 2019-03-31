@@ -40,15 +40,6 @@
   width: 300px;
 }
 
-.button {
-  margin: 0px 8px;
-  background: darkseagreen;
-  color: #fff;
-  border-radius: 7px;
-
-  border: 1px solid black;
-}
-
 .player-title {
   text-align: center;
   color: white;

@@ -1,0 +1,16 @@
+.counter--button {
+  margin: 0px 8px;
+  background: darkseagreen;
+  color: #fff;
+
+  border: none;
+}
+
+.button {
+  margin: 0px 8px;
+  background: darkseagreen;
+  color: #fff;
+  border-radius: 7px;
+
+  border: 1px solid black;
+}

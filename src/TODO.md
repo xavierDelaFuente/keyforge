@@ -60,7 +60,7 @@
 
 ## General Things
 
-[ ] Split Player in smaller components
+[x] Split Player in smaller components
 [ ] Improve styling
 [ ] Switch to emotion
 [ ] Use PropTypes
