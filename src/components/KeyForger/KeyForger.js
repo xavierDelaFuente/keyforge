@@ -42,7 +42,7 @@ function KeyForger({ count, setCount }) {
   return (
     <div className="keys-counter counter">
       <div className="keys-container">
-        <p> Keys: </p>
+        <p className="keys-container--title"> Keys: </p>
         <div className="keys-number">{renderKeys(forgedKey)}</div>
       </div>
       <div className="keys-counter-container button">

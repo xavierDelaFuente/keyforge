@@ -8,11 +8,12 @@ function Board() {
   const players = ["Magician the 1st", "Magician the 2nd"];
   return (
     <div className="board">
-      <Header className="board-header" />
-      <div className="board-table">
+      <Header className="board-header">
         <h2 className="players-board-title">
           Players cristals and keys counter
         </h2>
+      </Header>
+      <div className="board-table">
         <div className="players-board">
           <Players players={players} />
         </div>

@@ -1,0 +1,20 @@
+.player-families {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 8px;
+}
+.family {
+  height: 80px;
+  display: flex;
+}
+.remove-family {
+  position: relative;
+  color: white;
+  float: right;
+}
+.image {
+  margin: 2px;
+  border: 1px solid white;
+  border-radius: 42px;
+}

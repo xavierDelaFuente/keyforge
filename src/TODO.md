@@ -34,9 +34,9 @@
   [x] The player's keys are displayed 
   [x] The player can select 3 families
   [x] The player families' logo are displayed
-  [ ] Theres is a component to capture fragments from the other enemy
+  [x] Theres is a component to capture fragments from the other enemy
   [ ] The captured fragments can return to the relative player
-  [ ] Theres is a component to rob fragments from the other enemy
+  [x] Theres is a component to rob fragments from the other enemy
   [ ]
 
 ## Feature Things
@@ -61,6 +61,8 @@
 ## General Things
 
 [x] Split Player in smaller components
+[ ] Enable disable forge, steal and capture buttons if not possible
+[ ] Warn a player is about to forge a key
 [ ] Improve styling
 [ ] Switch to emotion
 [ ] Use PropTypes
