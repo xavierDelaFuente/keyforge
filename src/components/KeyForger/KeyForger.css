@@ -1,0 +1,14 @@
+.key {
+  height: 40px;
+  display: flex;
+}
+.keys-counter.counter {
+  flex-direction: column;
+}
+.keys-container {
+  display: flex;
+}
+.keys-number {
+  display: flex;
+  margin: 8px;
+}

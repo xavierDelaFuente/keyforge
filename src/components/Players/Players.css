@@ -1,48 +1,27 @@
-.player {
-  flex-direction: column;
+.player-container {
   display: flex;
-  align-items: center;
-  border: 4px solid darkcyan;
+  flex-direction: column;
+  border: 4px solid #008b5e;
   border-radius: 32px;
   margin: 8px;
-  background-color: #78849b;
+  background-color: #282c34;
+  width: 500px;
 }
-
-.player-families {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.player-title {
+  text-align: center;
+  color: goldenrod;
 }
-
-.keys-counter.counter {
-  flex-direction: column;
+.rotateElement--right {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
-.counter {
-  flex-direction: row;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.key {
-  height: 40px;
-  display: flex;
-}
-
-.family {
-  height: 80px;
-  display: flex;
-}
-
-.image {
-  margin: 2px;
-}
-
-.keys-container {
-  display: flex;
-}
-
-.keys-number {
-  display: flex;
-  margin: 8px;
+.rotateElement--left {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }

@@ -1,5 +1,5 @@
 .player {
-  flex-direction: column;
+  flex-direction: row;
   display: flex;
   align-items: center;
   border: 4px solid darkcyan;
@@ -7,46 +7,6 @@
   margin: 8px;
   background-color: #78849b;
 }
-
-.player-families {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.keys-counter.counter {
-  flex-direction: column;
-}
-.counter {
-  flex-direction: row;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.key {
-  height: 40px;
-  display: flex;
-}
-
-.family {
-  height: 80px;
-  display: flex;
-}
-
-.image {
-  margin: 2px;
-}
-
-.keys-container {
-  display: flex;
-}
-
-.keys-number {
-  display: flex;
-  margin: 8px;
-}
-
-.capturedFragments.image {
-  height: 16px;
+.player-fragments,
+.player-keys {
 }

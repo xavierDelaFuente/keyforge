@@ -1,5 +1,5 @@
 .counter--button {
-  margin: 0px 8px;
+  margin: 4px 8px;
   background: darkseagreen;
   color: #fff;
 
@@ -11,6 +11,11 @@
   background: darkseagreen;
   color: #fff;
   border-radius: 7px;
-
   border: 1px solid black;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  justify-content: space-between;
+  display: flex;
 }

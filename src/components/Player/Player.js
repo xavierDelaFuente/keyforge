@@ -20,22 +20,28 @@ function Player({
   const familyImages = useArray([]);
 
   return (
-    <div className="player">
+    <>
       <FamilySelector familiesLogo={familiesLogo} familyImages={familyImages} />
-      <CaptureFragments
-        count={otherPlayerCount}
-        setCount={otherPlayerSetCount}
-      />
+      <div className="player">
+        <div className="player-keys">
+          <KeyForger count={count} setCount={setCount} />
+        </div>
+        <div className="player-fragments">
+          <CaptureFragments
+            count={otherPlayerCount}
+            setCount={otherPlayerSetCount}
+          />
+          <FragmentsCounter count={count} setCount={setCount} />
+          <StealFragments
+            count={count}
+            setCount={setCount}
+            otherPlayerCount={otherPlayerCount}
+            otherPlayerSetCount={otherPlayerSetCount}
+          />
+        </div>
+      </div>
       <PlayerFamilies familyImages={familyImages} />
-      <KeyForger count={count} setCount={setCount} />
-      <FragmentsCounter count={count} setCount={setCount} />
-      <StealFragments
-        count={count}
-        setCount={setCount}
-        otherPlayerCount={otherPlayerCount}
-        otherPlayerSetCount={otherPlayerSetCount}
-      />
-    </div>
+    </>
   );
 }
 

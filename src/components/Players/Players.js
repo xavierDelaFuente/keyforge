@@ -10,7 +10,7 @@ function Players({ players }) {
 
   return (
     <>
-      <div key={players[0]} className="player-container">
+      <div key={players[0]} className="player-container rotateElement--right">
         <h5 className="player-title">{players[0]}</h5>
         <Player
           familiesLogo={familiesLogo}
@@ -20,7 +20,7 @@ function Players({ players }) {
           otherPlayerSetCount={setCount2}
         />
       </div>
-      <div key={players[1]} className="player-container">
+      <div key={players[1]} className="player-container rotateElement--left">
         <h5 className="player-title">{players[1]}</h5>
         <Player
           familiesLogo={familiesLogo}
