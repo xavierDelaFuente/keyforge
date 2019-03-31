@@ -15,7 +15,9 @@ function PlayerFamilies({ familyImages }) {
     <div className="player-families circle-container">
       {familyImages.value.map((family, i) => (
         <div key={i} className="family-image">
-          <div onClick={() => removeFamily(family)}>x</div>
+          <div className="remove-family" onClick={() => removeFamily(family)}>
+            x
+          </div>
           <img className="family image" src={family} alt="Smiley face" />
         </div>
       ))}
