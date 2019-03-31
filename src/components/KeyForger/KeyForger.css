@@ -4,11 +4,23 @@
 }
 .keys-counter.counter {
   flex-direction: column;
+  height: 100%;
 }
 .keys-container {
   display: flex;
+
+  height: 34%;
 }
 .keys-number {
   display: flex;
   margin: 8px;
+}
+.keys-counter-container {
+  height: 66%;
+}
+.keys-container--title {
+  color: goldenrod;
+}
+.display-number {
+  text-align: center;
 }

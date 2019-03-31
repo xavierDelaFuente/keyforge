@@ -57,7 +57,8 @@ function CaptureFragments({ count, setCount }) {
           })
         }
       >
-        Capture: {capture}
+        Capture:
+        {capture}
       </button>
       <Counter
         count={capture}
