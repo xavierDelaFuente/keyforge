@@ -1,3 +1,26 @@
 .capturedFragments.image {
   height: 16px;
+  border: 1px solid #282c34;
+  background-color: white;
+}
+
+.capturedFragments-list {
+  position: absolute;
+  float: right;
+  right: 0;
+  margin-right: -60px;
+}
+
+.capturedFragments-container {
+  border: 1px solid #282c34;
+  background-color: #74a074;
+  border-radius: 8px;
+}
+.capturedFragments--delete {
+  position: relative;
+  color: white;
+  background: none;
+  float: right;
+  border: none;
+  cursor: pointer;
 }

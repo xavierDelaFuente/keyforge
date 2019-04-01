@@ -67,13 +67,21 @@ function CaptureFragments({ count, setCount }) {
         text={"+"}
         className="increment-capturecost"
       />
-      {capturedFragments.value.length > 0 &&
-        capturedFragments.value.map((capturedFragment, key) => (
-          <li key={key}>
-            Captured {renderCapturedFragments(capturedFragment)}
-            {/*<button onClick={() => capturedFragments.removeIndex(key)}>delete</button>*/}
-          </li>
-        ))}
+      {capturedFragments.value.length > 0 && (
+        <div className="capturedFragments-list">
+          {capturedFragments.value.map((capturedFragment, key) => (
+            <div key={key} className="capturedFragments-container">
+              <button
+                className="capturedFragments--delete"
+                onClick={() => capturedFragments.removeIndex(key)}
+              >
+                x
+              </button>
+              {renderCapturedFragments(capturedFragment)}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
