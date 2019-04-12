@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useArray } from "react-hanger";
 import "./CaptureFragments.css";
 
 import Counter from "../../generalComponents/Counter/Counter.js";
@@ -7,14 +6,14 @@ import capturedFragmentskeyLogo from "../../data/img/fragments.png";
 
 function CaptureFragments({ count, setCount }) {
   const [capture, setCapture] = useState(0);
-  const capturedFragments = useArray([]);
+  const [capturedFragments, setCapturedFragments] = useState([]);
 
-  const renderCapturedFragments = number => {
+  const renderCapturedFragments = ({ value, index }) => {
     let fragments = [];
-    for (var i = 0; i < number; i++) {
+    for (var i = 0; i < value; i++) {
       fragments.push(
         <img
-          key={i}
+          key={index}
           className="capturedFragments image"
           src={capturedFragmentskeyLogo}
           alt="Smiley face"
@@ -29,11 +28,14 @@ function CaptureFragments({ count, setCount }) {
     setFragment,
     capture,
     setCapture,
-    capturedFragments
+    capturedFragments,
+    setCapturedFragments
   }) => {
     capture = count - capture > 0 ? capture : count;
     setCount(count - capture);
-    if (count > 0) capturedFragments.add(capture);
+    if (count > 0) setCapturedFragments([...capturedFragments, 
+      { value: capture, index: Object.values(capturedFragments).length}
+      ]);
   };
 
   return (
@@ -53,7 +55,8 @@ function CaptureFragments({ count, setCount }) {
             setCount,
             capture,
             setCapture,
-            capturedFragments
+            capturedFragments,
+            setCapturedFragments
           })
         }
       >
@@ -67,13 +70,16 @@ function CaptureFragments({ count, setCount }) {
         text={"+"}
         className="increment-capturecost"
       />
-      {capturedFragments.value.length > 0 && (
+      {capturedFragments.length > 0 && (
         <div className="capturedFragments-list">
-          {capturedFragments.value.map((capturedFragment, key) => (
-            <div key={key} className="capturedFragments-container">
+          {capturedFragments.map((capturedFragment, key) => (
+            <div key={`${capturedFragment}${key}`} className="capturedFragments-container">
               <button
                 className="capturedFragments--delete"
-                onClick={() => capturedFragments.removeIndex(key)}
+                onClick={() => {
+                  setCount(count + capturedFragment.value )
+                  setCapturedFragments(capturedFragments.filter((current) => current.index!==capturedFragment.index))
+                }}
               >
                 x
               </button>
