@@ -33,8 +33,10 @@ function CaptureFragments({ count, setCount }) {
   }) => {
     capture = count - capture > 0 ? capture : count;
     setCount(count - capture);
-    if (count > 0) setCapturedFragments([...capturedFragments, 
-      { value: capture, index: Object.values(capturedFragments).length}
+    if (count > 0)
+      setCapturedFragments([
+        ...capturedFragments,
+        { value: capture, index: Object.values(capturedFragments).length }
       ]);
   };
 
@@ -73,12 +75,19 @@ function CaptureFragments({ count, setCount }) {
       {capturedFragments.length > 0 && (
         <div className="capturedFragments-list">
           {capturedFragments.map((capturedFragment, key) => (
-            <div key={`${capturedFragment}${key}`} className="capturedFragments-container">
+            <div
+              key={`${capturedFragment}${key}`}
+              className="capturedFragments-container"
+            >
               <button
                 className="capturedFragments--delete"
                 onClick={() => {
-                  setCount(count + capturedFragment.value )
-                  setCapturedFragments(capturedFragments.filter((current) => current.index!==capturedFragment.index))
+                  setCount(count + capturedFragment.value);
+                  setCapturedFragments(
+                    capturedFragments.filter(
+                      current => current.index !== capturedFragment.index
+                    )
+                  );
                 }}
               >
                 x
