@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 import logo from "../../data/img/Keyforge-calendar.png";
@@ -8,7 +10,9 @@ class Header extends Component {
     const { className, children } = this.props;
     return (
       <header className={className || "App-header"}>
-        <img src={logo} className="App-logo" alt="logo" />
+        <Link to="/" className="navlink home">
+          <img src={logo} className="App-logo" alt="logo" />
+        </Link>
         {children}
       </header>
     );

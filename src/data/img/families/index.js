@@ -1,10 +1,10 @@
-import brobnar from "./brobnar.jpg";
-import dis from "./dis.png";
-import indomita from "./indomita.jpg";
-import logos from "./logos.png";
-import marte from "./marte.jpg";
-import sanctum from "./sanctum.jpg";
-import sombras from "./sombras.jpg";
+import brobnar from "./brobnar.svg";
+import dis from "./dis.svg";
+import indomita from "./indomita.svg";
+import logos from "./logos.svg";
+import marte from "./marte.svg";
+import sanctum from "./sanctum.svg";
+import sombras from "./sombras.svg";
 
 export default {
   brobnar: brobnar,

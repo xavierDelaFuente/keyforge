@@ -11,7 +11,7 @@ function Players({ players }) {
   return (
     <>
       <div key={players[0]} className="player-container rotateElement--flip">
-        <h5 className="player-title">{players[0]}</h5>
+        <div className="player-title">{players[0]}</div>
         <Player
           familiesLogo={familiesLogo}
           count={count1}
@@ -21,7 +21,7 @@ function Players({ players }) {
         />
       </div>
       <div key={players[1]} className="player-container">
-        <h5 className="player-title">{players[1]}</h5>
+        <div className="player-title">{players[1]}</div>
         <Player
           familiesLogo={familiesLogo}
           count={count2}

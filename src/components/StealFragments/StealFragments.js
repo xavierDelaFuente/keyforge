@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Counter from "../../generalComponents/Counter/Counter.js";
+import ValueDisplayer from "../../generalComponents/ValueDisplayer/ValueDisplayer.js";
 
 function StealFragments({
   count,
@@ -44,7 +45,7 @@ function StealFragments({
           })
         }
       >
-        Steal: {capture}
+        <ValueDisplayer title="Steal" value={capture} />
       </button>
       <Counter
         count={capture}
