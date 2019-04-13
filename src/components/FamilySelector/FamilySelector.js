@@ -1,11 +1,11 @@
 import React from "react";
 import "./FamilySelector.css";
 
-function FamilySelector({ familiesLogo, familyImages }) {
+function FamilySelector({ familiesLogo, familyImages, setfamilyImages }) {
   const maxImg = 3;
   const addFamily = family => {
-    if (familyImages.value.length < maxImg) {
-      familyImages.add(familiesLogo[family]);
+    if (familyImages.length < maxImg) {
+      setfamilyImages([...familyImages, familiesLogo[family]]);
     }
   };
   return (
