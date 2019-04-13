@@ -3,7 +3,7 @@ import "./KeyForger.css";
 
 import Counter from "../../generalComponents/Counter/Counter.js";
 import ValueDisplayer from "../../generalComponents/ValueDisplayer/ValueDisplayer.js";
-import keyLogo from "../../data/img/forged-key.png";
+import keyLogo from "../../data/img/forged-key.svg";
 
 function KeyForger({ count, setCount }) {
   const maxKey = 3;
