@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./KeyForger.css";
 
 import Counter from "../../generalComponents/Counter/Counter.js";
-import keyLogo from "../../data/img/forged-key.png";
+import ValueDisplayer from "../../generalComponents/ValueDisplayer/ValueDisplayer.js";
+import keyLogo from "../../data/img/forged-key.svg";
 
 function KeyForger({ count, setCount }) {
   const maxKey = 3;
@@ -59,7 +60,7 @@ function KeyForger({ count, setCount }) {
             forgeKey(count, setCount, forgedKey, setForgedKey, keycost)
           }
         >
-          Forge Key for {keycost}
+          <ValueDisplayer title="Forge Key for" value={keycost} />
         </button>
         <Counter
           count={keycost}

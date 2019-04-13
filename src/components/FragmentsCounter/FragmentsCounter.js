@@ -2,27 +2,28 @@ import React from "react";
 import "./FragmentsCounter.css";
 
 import Counter from "../../generalComponents/Counter/Counter.js";
+import ValueDisplayer from "../../generalComponents/ValueDisplayer/ValueDisplayer.js";
 
 function FragmentsCounter({ count, setCount }) {
   return (
     <div className="fragments-counter counter">
-      <p className="fragments-count button" count={count}>
-        <Counter
-          count={count}
-          setCount={setCount}
-          incrementValue={-1}
-          text={"-"}
-          className="decrement"
-        />
-        {`Key Fragments: ${count}`}
-        <Counter
-          count={count}
-          setCount={setCount}
-          incrementValue={1}
-          text={"+"}
-          className="increment"
-        />
-      </p>
+      <Counter
+        count={count}
+        setCount={setCount}
+        incrementValue={-1}
+        text={"-"}
+        className="decrement"
+      />
+      <button className="counter--button">
+        <ValueDisplayer title="Fragments" value={count} />
+      </button>
+      <Counter
+        count={count}
+        setCount={setCount}
+        incrementValue={1}
+        text={"+"}
+        className="increment"
+      />
     </div>
   );
 }

@@ -15,12 +15,15 @@
   display: flex;
   margin: 8px;
 }
-.keys-counter-container {
-  height: 66%;
-}
 .keys-container--title {
   color: goldenrod;
 }
 .display-number {
   text-align: center;
+}
+.add-key {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
