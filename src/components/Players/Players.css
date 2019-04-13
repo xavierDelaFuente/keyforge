@@ -5,23 +5,16 @@
   border-radius: 32px;
   margin: 8px;
   background-color: #282c34;
-  width: 400px;
+  height: 50%;
 }
 .player-title {
   text-align: center;
   color: goldenrod;
 }
-.rotateElement--right {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-.rotateElement--left {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+.rotateElement--flip {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }

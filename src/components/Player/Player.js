@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { useArray } from "react-hanger";
 import "./Player.css";
 
 import CaptureFragments from "../CaptureFragments/CaptureFragments.js";
@@ -17,7 +16,6 @@ function Player({
   otherPlayerCount,
   otherPlayerSetCount
 }) {
-  // const familyImages = useArray([]);
   const [familyImages, setfamilyImages] = useState([]);
 
   return (
