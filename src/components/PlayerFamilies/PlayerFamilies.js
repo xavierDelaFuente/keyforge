@@ -1,19 +1,18 @@
 import React from "react";
 import "./PlayerFamilies.css";
 
-function PlayerFamilies({ familyImages }) {
+function PlayerFamilies({ familyImages, setfamilyImages }) {
   const removeFamily = family => {
-    if (familyImages.value.length > 0) {
-      // console.log(family);
-      // console.log(familyImages);
-      // console.log(familyImages.value.indexOf(family));
-      familyImages.removeById(familyImages.value.indexOf(family));
+    if (familyImages.length > 0) {
+      setfamilyImages(
+        familyImages.filter(currentFamily => currentFamily !== family)
+      );
     }
   };
 
   return (
     <div className="player-families circle-container">
-      {familyImages.value.map((family, i) => (
+      {familyImages.map((family, i) => (
         <div key={i} className="family-image">
           <div className="remove-family" onClick={() => removeFamily(family)}>
             x

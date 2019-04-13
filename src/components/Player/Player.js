@@ -1,5 +1,5 @@
-import React from "react";
-import { useArray } from "react-hanger";
+import React, { useState } from "react";
+// import { useArray } from "react-hanger";
 import "./Player.css";
 
 import CaptureFragments from "../CaptureFragments/CaptureFragments.js";
@@ -17,11 +17,16 @@ function Player({
   otherPlayerCount,
   otherPlayerSetCount
 }) {
-  const familyImages = useArray([]);
+  // const familyImages = useArray([]);
+  const [familyImages, setfamilyImages] = useState([]);
 
   return (
     <>
-      <FamilySelector familiesLogo={familiesLogo} familyImages={familyImages} />
+      <FamilySelector
+        familiesLogo={familiesLogo}
+        familyImages={familyImages}
+        setfamilyImages={setfamilyImages}
+      />
       <div className="player">
         <div className="player-keys">
           <KeyForger count={count} setCount={setCount} />
@@ -40,7 +45,10 @@ function Player({
           />
         </div>
       </div>
-      <PlayerFamilies familyImages={familyImages} />
+      <PlayerFamilies
+        familyImages={familyImages}
+        setfamilyImages={setfamilyImages}
+      />
     </>
   );
 }
