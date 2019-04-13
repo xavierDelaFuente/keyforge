@@ -1,43 +1,9 @@
 .counter--button {
-  margin: 4px 8px;
-  background: darkseagreen;
   color: #fff;
-
+  background-color: #282c34;
   border: none;
 }
-/*
-.button--fragment {
-  margin: 0px 8px;
-  background: darkseagreen;
-  color: #fff;
-  border-radius: 7px;
-  border: 1px solid black;
-  text-align: center;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  justify-content: space-between;
-  display: flex;
-}
-.button--key {
-  margin: 0px 8px;
-  background: darkgoldenrod;
-  color: #fff;
-  border-radius: 7px;
-  border: 1px solid black;
-  text-align: center;
-  align-items: center;
-  align-content: center;
-  align-self: center;
-  justify-content: space-between;
-  display: flex;
-}*/
 .button {
-  background: darkseagreen;
-  color: white;
-  border-radius: 7px;
-  border: 1px solid black;
-  text-align: center;
   justify-content: space-between;
   display: flex;
 }

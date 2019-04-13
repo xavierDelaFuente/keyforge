@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./CaptureFragments.css";
 
 import Counter from "../../generalComponents/Counter/Counter.js";
+import ValueDisplayer from "../../generalComponents/ValueDisplayer/ValueDisplayer.js";
 import capturedFragmentskeyLogo from "../../data/img/fragments.png";
 
 function CaptureFragments({ count, setCount }) {
@@ -62,8 +63,7 @@ function CaptureFragments({ count, setCount }) {
           })
         }
       >
-        Capture:
-        {capture}
+        <ValueDisplayer title="Capture" value={capture} />
       </button>
       <Counter
         count={capture}

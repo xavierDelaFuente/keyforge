@@ -10,6 +10,7 @@
 .player-title {
   text-align: center;
   color: goldenrod;
+  margin: 0.2em;
 }
 .rotateElement--flip {
   -webkit-transform: rotate(180deg);
